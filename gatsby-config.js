@@ -1,14 +1,14 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Starter Blog`,
+    title: `DanStevenson.CO`,
     author: {
-      name: `Kyle Mathews`,
-      summary: `who lives and works in San Francisco building useful things.`,
+      name: `Dan Stevenson`,
+      summary: `a software developer living in Sheffield and studying with Northcoders.`,
     },
-    description: `A starter blog demonstrating what Gatsby can do.`,
-    siteUrl: `https://gatsby-starter-blog-demo.netlify.app/`,
+    description: `Personal site of Dan Stevenson.`,
+    siteUrl: `https://www.danstevenson.co`,
     social: {
-      twitter: `kylemathews`,
+      twitter: `DanStevensonCO`,
     },
   },
   plugins: [
