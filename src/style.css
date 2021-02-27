@@ -83,6 +83,11 @@ body {
   color: var(--color-text);
 }
 
+/* Needed to avoid whitespace to right on small mobile */
+html,body{
+  overflow-x: hidden;
+}
+
 footer {
   padding: var(--spacing-6) var(--spacing-0);
 }
@@ -357,5 +362,14 @@ a:focus {
   ul,
   ol {
     list-style-position: inside;
+  }
+}
+
+@media (max-width: 585px) {
+  .nav-link {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center
   }
 }
