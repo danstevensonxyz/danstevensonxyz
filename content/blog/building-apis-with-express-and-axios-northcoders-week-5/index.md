@@ -7,13 +7,13 @@ image: "./mvc-api-model.png"
 
 ![API model code for handling response data](/mvc-api-model.png "API model code for handling response data")
 
-This week was the start of the backend module of the Northcoders course, and started by picking up on some of the API work started last week. Rather than using the Node-native http module to build servers, we started using the Express framework, which allows for better organisation of the code into models, views and controllers (MVC) and better syntax generally. 
+This week was the start of the backend module of the <a href = "https://northcoders.com/" target="_blank">Northcoders</a> course, and started by picking up on some of the API work started last week. Rather than using the Node-native http module to build servers, we started using the <a href = "https://expressjs.com/" target="_blank">Express framework</a>, which allows for better organisation of the code into models, views and controllers (MVC) and better syntax generally. 
 
 Using the MVC model, the file structure roughly follows:
 
 app →  API router → path-specific router →  controller ←→ model
 
-Our app.js files were small compared to the others, and it’s main job is to initialise the server and pass requests on to the API router. One example includes just five lines of code:
+Our `app.js` files were small compared to the others, and it’s main job is to initialise the server and pass requests on to the API router. One example includes just five lines of code:
 
     const express = require('express')
 
@@ -26,9 +26,9 @@ Our app.js files were small compared to the others, and it’s main job is to in
     module.exports = app
 
 
-Since we were building APIs, the assumption with this app.js file is that all requests would include `/api` at the base of the request path.
+Since we were building APIs, the assumption with this `app.js` file is that all requests would include `/api` at the base of the request path.
 
-The request then enters the API router, whos job is to pass path-specific requests on to the relevant router. In our example project, we were building API requests for a Spotify alternative, so path specific requests included `/api/albums`, `/api/songs` and `/api/lyrics`. 
+The request then enters the API router, whose job is to pass path-specific requests on to the relevant router. In our example project, we were building API requests for a Spotify alternative, so path specific requests included `/api/albums`, `/api/songs` and `/api/lyrics`. 
 
     const express = require("express");
     const albumsRouter = require("./albumsRouter.js");
@@ -76,7 +76,7 @@ This is another relatively simple file, and handles the requests that come back 
 
 The `getAlbums` function that we have passed to from the router includes a request and a response. We are usually most interested in the response here. In the above example, we’re getting back the `albums` data from the `fetchAlbums()` function further upstream in our model. We’re then returning a response with status code 200 (`OK`) and sending the `albums` data. We can also `.catch()` an error, and respond with a 404 code and an error message. 
 
-In our final file in the chain, we have our model which handles the data from the request and how we are going to pass that back to the user. Since we’re requesting the data from another API, we use Axios to make a `.get()` request to the external API. 
+In our final file in the chain, we have our model which handles the data from the request and how we are going to pass that back to the user. Since we’re requesting the data from another API, we use <a href="https://www.npmjs.com/package/axios" target="_blank">Axios</a> to make a `.get()` request to the external API. 
 
 Since making a request to an API will return all of that data on that path, we might need to handle that data to make sure we are only passing back to our user the relevant data. In general, an API response is going to include a lot of metadata that our user won’t be interested in, so we can usually access the relevant data on the `data` object (e.g. `const albumData = apiResponseData.data`). Now we can handle the `albumData`, which will be an array containing objects with the individual albums’ data. 
 
