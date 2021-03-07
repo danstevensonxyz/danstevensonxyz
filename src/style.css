@@ -357,6 +357,19 @@ a:focus {
   font-style: italic;
 }
 
+
+/* Prism code block formatting (cache issue - not importing from prism-coy.css) */
+pre[class*="language-"]>code {
+	position: relative;
+	border-left: 10px solid var(--color-primary);
+	box-shadow: -1px 0px 0px 0px var(--color-primary), 0px 0px 0px 1px #dfdfdf;
+	background-color: #fdfdfd;
+	background-image: linear-gradient(transparent 50%, rgba(8, 15, 6, 0.04) 50%);
+	background-size: 3em 3em;
+	background-origin: content-box;
+	background-attachment: local;
+}
+
 /* Media queries */
 
 @media (max-width: 42rem) {
