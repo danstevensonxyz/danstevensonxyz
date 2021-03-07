@@ -25,27 +25,31 @@ After creating test databases, the next requirement is to add test data to them.
 
 Assuming the test data is in JSON format, a `knexfile.js` includes info about the database name and seed files and a `dbConnection.js` file creates a connection to the relevant database. The `dbConnection.js` file will look like this:
 
-    const knex = require('knex')
-    const dbConfig = require('../knexfile.js')
+```javascript
+const knex = require('knex')
+const dbConfig = require('../knexfile.js')
 
-    const dbConnection = knex(dbConfig)
+const dbConnection = knex(dbConfig)
 
-    module.exports = dbConnection
-
+module.exports = dbConnection
+```
 
 Then a `seed.js` can use Knex syntax to insert the relevant JSON data into the database. Here’s example syntax of inserting `ownersData` (a JSON object) into `’owners’` (a SQL table):
 
-    exports.seed = (dbConnection) => {
-        return dbConnection
-            .insert(ownersData)
-            .into('owners')
-            .returning('*')
-    }
+```javascript
+exports.seed = (dbConnection) => {
+    return dbConnection
+        .insert(ownersData)
+        .into('owners')
+        .returning('*')
+}
+```
 
 With a test database and Knex seed files, the following command can be run to 1) drop/create the test database and 2) seed the database with test data:
 
-    psql -f ./db/test-setup.sql && knex seed:run
-
+```javascript
+psql -f ./db/test-setup.sql && knex seed:run
+```
 
 ##Express
 
@@ -58,55 +62,63 @@ An `app.js` file does the following:
 - routes to an API router
 - handles any generic errors (can be expanded by building in specific error handling functions).
 
-        const express = require('express')
-        const apiRouter = require('./routes/apiRouter.js')
+```javascript
+const express = require('express')
+const apiRouter = require('./routes/apiRouter.js')
 
-        const app = express()
+const app = express()
 
-        app.use(express.json())
+app.use(express.json())
 
-        app.use('/api', apiRouter)
+app.use('/api', apiRouter)
 
-        app.use((err, req, res, next) => {
-            console.log(err)
-        })
+app.use((err, req, res, next) => {
+    console.log(err)
+})
 
-        module.exports = app
+module.exports = app
+```
 
 Next, an `apiRouter.js` routes requests to specific paths (in our example: /api/owners)
 
-    const express = require('express')
-    const ownersRouter = require('./ownersRouter')
+```javascript
+const express = require('express')
+const ownersRouter = require('./ownersRouter')
 
-    const apiRouter = express.Router()
+const apiRouter = express.Router()
 
-    apiRouter.use('/owners', ownersRouter)
+apiRouter.use('/owners', ownersRouter)
 
-    module.exports = apiRouter
+module.exports = apiRouter
+```
 
 An `ownersRouter.js` routes more specific requests (eg GET / POST / DELETE requests to specific / parametric endpoints)
 
-    const express = require('express')
-    const {getOwners, postOwner, deleteOwner} = require('../controllers/ownersController.js')
+```javascript
+const express = require('express')
+const {getOwners, postOwner, deleteOwner} = require('../controllers/ownersController.js')
 
-    const ownersRouter = express.Router()
+const ownersRouter = express.Router()
 
-    ownersRouter.get('/', getOwners)
-    ownersRouter.post('/', postOwner)
-    ownersRouter.delete('/:ownerId', deleteOwner)
+ownersRouter.get('/', getOwners)
+ownersRouter.post('/', postOwner)
+ownersRouter.delete('/:ownerId', deleteOwner)
 
-    module.exports = ownersRouter
+module.exports = ownersRouter
+```
 
 An `ownersController.js` handles the response to specific requests (eg requesting a list of all owners):
 
-    const {fetchOwners} = require('../models/ownersModel.js')
+```javascript
+const {fetchOwners} = require('../models/ownersModel.js')
 
-    exports.getOwners = (req, res, next) => {
-        const queries = req.query
-        fetchOwners(queries).then((owners) => {
-            res.status(200).send({owners})
-        })
-    }
+exports.getOwners = (req, res, next) => {
+    const queries = req.query
+    fetchOwners(queries).then((owners) => {
+        res.status(200).send({owners})
+    })
+}
+```
 
 Finally, an `ownersModel.js` uses Knex to query the database and return relevant data. In the below example, Knex performs a number of roles:
 
@@ -116,24 +128,26 @@ Finally, an `ownersModel.js` uses Knex to query the database and return relevant
 - Knex can use these queries to do things like sort by the queried condition (eg a query of `?sort_by=age` is translated to `.orderBy(queries.sort_by || 'owner_id', 'asc')`, where `owner_id` is a default value to sort by in case no sort queries are passed
 - Knex has a `.modify()` method, which allows for adding conditional logic to the query and then chaining a `.where()` method to the query if a particular condition is met. 
 
-        const dbConnection = require('../db/dbConnection')
+```javascript
+const dbConnection = require('../db/dbConnection')
 
-        exports.fetchOwners = (queries) => {
-            return dbConnection("owners")
-                .select('*')
-                .orderBy(queries.sort_by || 'owner_id', 'asc')
-                .limit(10)
-                .modify((querySoFar) => {
-                    if(queries.max_age !== undefined){
-                        querySoFar.where('age', '<=', queries.max_age)
-                    }
+exports.fetchOwners = (queries) => {
+    return dbConnection("owners")
+        .select('*')
+        .orderBy(queries.sort_by || 'owner_id', 'asc')
+        .limit(10)
+        .modify((querySoFar) => {
+            if(queries.max_age !== undefined){
+                querySoFar.where('age', '<=', queries.max_age)
+            }
 
-                    if(queries.surname !== undefined){
-                        querySoFar.where('surname', '=', queries.surname)
-                    }
-                })
-                .returning('*')
-        }
+            if(queries.surname !== undefined){
+                querySoFar.where('surname', '=', queries.surname)
+            }
+        })
+        .returning('*')
+}
+```
 
 ##Jest / SuperTest
 
@@ -141,23 +155,28 @@ Following proper test-driven development practices, <a href="https://www.npmjs.c
 
 An example of what would be added inside a Jest `it` / `test` block would be.
 
-    return request(app)
-        .get('/api/owners')
-        .expect(200)
-        .then(({body}) => {
-            expect(Array.isArray(body.owners)).toBe(true)
-            expect(body.owners[0]).toMatchObject({
-                owner_id: expect.any(Number),
-                forename: expect.any(String),
-                surname: expect.any(String),
-                age: expect.any(Number)
-            })
-            expect(body.owners).toBeSortedBy('owner_id', {
-                ascending: true
-            })
+```javascript
+return request(app)
+    .get('/api/owners')
+    .expect(200)
+    .then(({body}) => {
+        expect(Array.isArray(body.owners)).toBe(true)
+        expect(body.owners[0]).toMatchObject({
+            owner_id: expect.any(Number),
+            forename: expect.any(String),
+            surname: expect.any(String),
+            age: expect.any(Number)
         })
+        expect(body.owners).toBeSortedBy('owner_id', {
+            ascending: true
+        })
+    })
+```
 
 Using SuperTest has the added comic benefit of having to use this gem of a line: 
-    afterAll(() => dbConnection.destroy())
+
+```javascript    
+afterAll(() => dbConnection.destroy())
+```
 
 Since SuperTest creates a connection to the database and Jest checks for the response, this `afterAll` … `.destroy()` checks that all requests have been made, and after they have it kills the connection to the database, so that Jest knows that all responses have come back. 

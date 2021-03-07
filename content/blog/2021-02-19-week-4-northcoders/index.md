@@ -19,35 +19,38 @@ The object-oriented challenges also went fine. I’d spent all of Thursday and F
 
 Higher-order functions (HOFs) and recursion was a bit more challenging, which wasn’t a surprise to me. As me and other Northcoders have said, one of the difficulties in grasping HOFs is that they are often pretty generalist, so it’s difficult to see what’s going on with them at first glance. An example of one of the HOFs I wrote to meet the challenge tests:
 
-    function invert(func1) {
-        function newFunc(...args){
-            return !func1(...args)
-        }
-        
-        return newFunc
+```javascript
+function invert(func1) {
+    function newFunc(...args){
+        return !func1(...args)
     }
-
+    
+    return newFunc
+}
+```
 
 To me, these ‘one size fits all’ functions, that allow all sorts of functions to input into them, seems a bit like contradicting the principles of TDD. They feel more generalist than specific solutions to specific problems. But this might be because I’ve not seen much real-world application of them yet.
 
 The recursive challenges also took a lot of head-scratching, but I made decent progress with them. One solution I built was a function to take a nested object (of unknown depth) and return an array with the key value pairs. 
 
-    const deepEntries = (obj) => { 
-        let objCopy = {...obj} // creates a copy of the input, so as to not mutate
-        let keyValArr = []
+```javascript
+const deepEntries = (obj) => { 
+    let objCopy = {...obj} // creates a copy of the input, so as to not mutate
+    let keyValArr = []
 
-        for (const key in objCopy){
-            if(typeof objCopy[key] === 'object'){ // checks if the value is itself an object
-                keyValArr.push([key, deepEntries(objCopy[key])]) // and pushes the object back into the function if it is
-            } else {
-                keyValArr.push([key, objCopy[key]]) // pushes the key/value pair to the array, when the value is not an object
-                delete objCopy[key] // deletes the key/value pair from the copied object, so the function can re-run without needing to deal with this pair
-                deepEntries(objCopy) // runs the function again with the remaining object
-            }
+    for (const key in objCopy){
+        if(typeof objCopy[key] === 'object'){ // checks if the value is itself an object
+            keyValArr.push([key, deepEntries(objCopy[key])]) // and pushes the object back into the function if it is
+        } else {
+            keyValArr.push([key, objCopy[key]]) // pushes the key/value pair to the array, when the value is not an object
+            delete objCopy[key] // deletes the key/value pair from the copied object, so the function can re-run without needing to deal with this pair
+            deepEntries(objCopy) // runs the function again with the remaining object
         }
+    }
 
-        return keyValArr
-    };
+    return keyValArr
+};
+```
 
 ##Tuesday and Wednesday
 

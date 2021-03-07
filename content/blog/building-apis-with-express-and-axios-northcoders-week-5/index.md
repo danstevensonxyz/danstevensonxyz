@@ -15,64 +15,69 @@ app →  API router → path-specific router →  controller ←→ model
 
 Our `app.js` files were small compared to the others, and it’s main job is to initialise the server and pass requests on to the API router. One example includes just five lines of code:
 
-    const express = require('express')
+```javascript
+const express = require('express')
 
-    const apiRouter = require('./routes/apiRouter.js')
+const apiRouter = require('./routes/apiRouter.js')
 
-    const app = express()
+const app = express()
 
-    app.use('/api', apiRouter)
+app.use('/api', apiRouter)
 
-    module.exports = app
-
+module.exports = app
+```
 
 Since we were building APIs, the assumption with this `app.js` file is that all requests would include `/api` at the base of the request path.
 
 The request then enters the API router, whose job is to pass path-specific requests on to the relevant router. In our example project, we were building API requests for a Spotify alternative, so path specific requests included `/api/albums`, `/api/songs` and `/api/lyrics`. 
 
-    const express = require("express");
-    const albumsRouter = require("./albumsRouter.js");
-    const lyricsRouter = require("./lyricsRouter.js");
-    const songsRouter = require("./songsRouter.js");
+```javascript
+const express = require("express");
+const albumsRouter = require("./albumsRouter.js");
+const lyricsRouter = require("./lyricsRouter.js");
+const songsRouter = require("./songsRouter.js");
 
-    const apiRouter = express.Router();
+const apiRouter = express.Router();
 
-    apiRouter.use("/albums", albumsRouter);
-    apiRouter.use("/songs", songsRouter);
-    apiRouter.use("/lyrics", lyricsRouter);
+apiRouter.use("/albums", albumsRouter);
+apiRouter.use("/songs", songsRouter);
+apiRouter.use("/lyrics", lyricsRouter);
 
-    module.exports = apiRouter;
+module.exports = apiRouter;
+```
 
 Assuming that a request comes through with a path including `/api/albums`, we’d then be in the albums router file. This basically handles other potential paths, including parametric endpoints (eg `/api/albums/Strange Timez`) and queries (eg `/api/albums?title=’Strange Timez’`). In the example below, we’ll just fetch a list of all albums, so the `albumsRouter.get()` request just includes `’/’` as the path. We could also add more `.get()` requests, for things like `’/:albumTitle’` (parametric endpoint). Parametric endpoints are handled further upstream, in the `models`. 
 
-    const express = require('express')
-    const getAlbums = require('../controllers/albums.js')
+```javascript
+const express = require('express')
+const getAlbums = require('../controllers/albums.js')
 
-    const albumsRouter = express.Router()
+const albumsRouter = express.Router()
 
-    albumsRouter.get('/', getAlbums)
+albumsRouter.get('/', getAlbums)
 
 
-    module.exports = albumsRouter
-
+module.exports = albumsRouter
+```
 
 After being routed to the correct place depending on the request (eg from the above, when requesting on `/api/albums` we the request is passed on the the `getAlbums` function), we then find ourselves in the relevant controller. 
 
 This is another relatively simple file, and handles the requests that come back from the `model`. It’s main job is to return the result of the request. This could either be the requested data (if the request is a valid one), or an error. For example:
 
-    const fetchAlbums = require('../models/albums.js')
+```javascript
+const fetchAlbums = require('../models/albums.js')
 
-    const getAlbums = (req, res) => {
-        fetchAlbums().then((albums) => {
-            res.status(200).send(albums)
-        })
-        .catch((err) => {
-            res.status(404).send("Requested album or data does not exist");
-        });
-    }
+const getAlbums = (req, res) => {
+    fetchAlbums().then((albums) => {
+        res.status(200).send(albums)
+    })
+    .catch((err) => {
+        res.status(404).send("Requested album or data does not exist");
+    });
+}
 
-    module.exports = getAlbums
-
+module.exports = getAlbums
+```
 
 The `getAlbums` function that we have passed to from the router includes a request and a response. We are usually most interested in the response here. In the above example, we’re getting back the `albums` data from the `fetchAlbums()` function further upstream in our model. We’re then returning a response with status code 200 (`OK`) and sending the `albums` data. We can also `.catch()` an error, and respond with a 404 code and an error message. 
 
@@ -82,22 +87,24 @@ Since making a request to an API will return all of that data on that path, we m
 
 In our basic example, we just want to return with a list of all album titles, so we can `map` through the array of objects, find the album titles and add them to a new array. We can then then add a ‘title’ to the array by including it in a new object (which makes it more clear to the user what the response data is), and return the data from the `fetchAlbums()` function. Which looks like this: 
 
-    const axios = require('axios')
+```javascript
+const axios = require('axios')
 
-    const url = 'https://nc-spotify.herokuapp.com/albums'
+const url = 'https://nc-spotify.herokuapp.com/albums'
 
-    const fetchAlbums = () => {
-        return axios.get(url).then((apiResponseData) => {
-            const albumData = apiResponseData.data
+const fetchAlbums = () => {
+    return axios.get(url).then((apiResponseData) => {
+        const albumData = apiResponseData.data
 
-            const albumTitlesArr = albumData.map(album => album.title)
+        const albumTitlesArr = albumData.map(album => album.title)
 
-            const albumTitlesObj = {"albums": albumTitlesArr}
-            return albumTitlesObj
-        })
-    }
+        const albumTitlesObj = {"albums": albumTitlesArr}
+        return albumTitlesObj
+    })
+}
 
-    module.exports = fetchAlbums
+module.exports = fetchAlbums
+```
 
 Although the return value inside the axios function is the object with album titles, axios is a `Promise` based client, so the return value will be a pending `Promise`. We therefore need to return this `Promise` from within the `fetchAlbums` function declaration. This is then invoked within the`fetchAlbums` function, inside the `getAlbums` function in our controller, and by using a `.then()` callback, we’re able to use the data from the Promise and return the relevant data (`res.status(200).send(albums)`). 
 

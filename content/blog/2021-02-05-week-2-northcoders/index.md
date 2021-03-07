@@ -22,28 +22,31 @@ The lecture on array methods covered some familiar things as well as some good e
 
 Something I didn’t realise before that was while .map() iterates through the relevant array and returns a modified value on each, .filter() returns a true/false value and then either includes/excludes the value on the new array. 
 
-**.map() example:**
+**`.map()` example:**
     
-    function tripleNum(num) {
-      return num * 3;
-    }
-    
-    const nums = [1, 2, 3, 4, 5];
-    
-    const tripledNums = nums.map(tripleNum);
-    console.log(tripledNums); // [3, 6, 9, 12, 15];
+```javascript
+function tripleNum(num) {
+    return num * 3;
+}
 
+const nums = [1, 2, 3, 4, 5];
 
-**.filter() example:**
-    
-    const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-    
-    const evenNums = nums.filter(function(val) {
-      return val % 2 === 0;
-    });
-    
-    console.log(evenNums); // [2, 4, 6, 8, 10];
+const tripledNums = nums.map(tripleNum);
+console.log(tripledNums); // [3, 6, 9, 12, 15];
+```
+<br/>
 
+**`.filter()` example:**
+    
+```javascript
+const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const evenNums = nums.filter(function(val) {
+    return val % 2 === 0;
+});
+
+console.log(evenNums); // [2, 4, 6, 8, 10];
+```
 
 Most of the morning and afternoon was spend working through katas in pairs. It wasn’t a surprise to me that having to explain solutions to someone else is much more difficult than having control of the keyboard and cracking on with it. It was made slightly more difficult by having to simultaneously dictate tests to be written for each solution, which is not something I’d had much practice with. It feels a bit like learning a language, in that you can feel yourself trying to exercise fairly sedentary parts of your brain. Also as with learning a new language, to get anywhere you have to spend a fair amount of time rambling on and hoping what you’re saying makes sense. 
 
@@ -56,26 +59,32 @@ We also had a lecture on the difference between ‘reference’ and ‘value’.
 Basically, primitive data types (string, number, boolean, etc.) are held as values. This means that if two variables both have the value of 123, they have the same value. 
 So:
 
-    let num1 = 123
-    let num2 = 123
-    console.log(num1 === num2) // true
+```javascript
+let num1 = 123
+let num2 = 123
+console.log(num1 === num2) // true
+```
 
 However, non-primitive data types (objects and arrays) have their contents stored as references. This means the content is stored as a reference somewhere in JavaScript memory, and the variable references the ‘address’ to the part of memory. 
 
 Each time an object is declared, a new space in memory is created with the contents of the object, and the variable for that object points to that part of memory. Even if two objects are declared with the same contents, a new space will be created in memory. Only if a new variable is created and assigned to the value of another object will they point to the same space. 
 
-    let obj1 = {number: 123}
-    let obj2 = {number: 123}
-    let copyObj1 = obj1
-    console.log(obj1 === copyObj1) // true
-    console.log(obj1 === obj2) // false
+```javascript
+let obj1 = {number: 123}
+let obj2 = {number: 123}
+let copyObj1 = obj1
+console.log(obj1 === copyObj1) // true
+console.log(obj1 === obj2) // false
+```
 
 Copying objects as above can be risky though, since mutating the object with variable name obj1 will mean references to copyObj1 will also be mutated. This can lead to unintended consequences, if the objects are supposed to be separate entities. 
 
 The way to avoid this is to use the spread operator:
 
-    let obj3 = {...obj1}
-    console.log(obj3) // {number: 123}
+```javascript
+let obj3 = {...obj1}
+console.log(obj3) // {number: 123}
+```
 
 Using this method, we have created a copy of obj1, but made a totally new object in obj3 that can then be mutated without causing any changes to obj1.
 
@@ -88,10 +97,13 @@ On Thursday we learned about closure — the concept of a function ‘peeking in
 
 We finished the week up by learning about some enhanced testing methods, including how to test the number of times a function has been called. E.g.
 
-    expect(functionName).toHaveBeenCalledTimes(5);
+```javascript
+expect(functionName).toHaveBeenCalledTimes(5);
+```
 
 This is useful when functions don’t have a return value, but it’s important to check that the function has been called a certain number of times. 
 Another example if to check that the function has been called with a certain input. E.g.
 
-    expect(functionName).toHaveBeenCalledWith([‘array’, ‘of’, ‘values’])
-
+```javascript
+expect(functionName).toHaveBeenCalledWith(["array", "of", "values"])
+```
