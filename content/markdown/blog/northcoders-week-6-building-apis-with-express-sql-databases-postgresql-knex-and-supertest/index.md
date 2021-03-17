@@ -7,7 +7,7 @@ image: "./knex-query.png"
 
 ![Code showing a SQL database query using KnexJS](/knex-query.png "Querying a SQL database using KnexJS")
 
-This week I worked on a couple of mini SQL API projects, building on <a href="/building-apis-with-express-and-axios-northcoders-week-5">last week’s work with Express</a>. It involved learning a few new processes (e.g. seeding databases) and new packages/tools (e.g. Knex). It was also interesting because it’s the first time I’ve worked on a project bridging the gap between data stored in two languages (JavaScript/JSON and SQL). 
+This week I worked on a couple of mini SQL API projects, building on <a href="/blog/building-apis-with-express-and-axios-northcoders-week-5">last week’s work with Express</a>. It involved learning a few new processes (e.g. seeding databases) and new packages/tools (e.g. Knex). It was also interesting because it’s the first time I’ve worked on a project bridging the gap between data stored in two languages (JavaScript/JSON and SQL). 
 
 So here I’ll cover some of the tools used and how each contributes towards the full picture of having an Express API make queries to a SQL database.
 

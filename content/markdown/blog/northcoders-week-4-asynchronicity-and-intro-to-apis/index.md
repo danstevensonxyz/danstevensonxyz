@@ -1,5 +1,5 @@
 ---
-title: Weeknote - Northcoders Week 4
+title: Asynchronicity and intro to APIs (Northcoders week 4)
 date: "2021-02-19"
 description: "It was a quiet start to week — Monday was ‘Revision Day’. It was a good opportunity to go back over some of the more complex topics covered over the last couple of weeks. I worked through the Northcoders repo provided as usual, which included challenges on..."
 ---

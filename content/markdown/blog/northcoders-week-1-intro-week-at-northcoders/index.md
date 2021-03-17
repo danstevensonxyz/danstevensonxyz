@@ -1,5 +1,5 @@
 ---
-title: Weeknote - Northcoders Week 1
+title: Intro week at Northcoders
 date: "2021-01-29"
 description: "This week I started the remote coding bootcamp with Northcoders. It’s been a busy and interesting week, covering a lot of ground and brushing up on some of the topics I’ve covered as part of the preparation work for the course."
 ---

@@ -1,5 +1,5 @@
 ---
-title: Weeknote - Northcoders Week 3
+title: Recursion and object-oriented programming (Northcoders week 3)
 date: "2021-02-12"
 description: "The week started, as arguably all do, with Recursion! For loops are second nature now, and most of Monday was spent pair-programming and thinking about similar katas to the ones that have previously been done using for loops, but refactoring in recursion instead. "
 ---

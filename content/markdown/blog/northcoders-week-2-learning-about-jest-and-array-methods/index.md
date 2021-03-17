@@ -1,5 +1,5 @@
 ---
-title: Weeknote - Northcoders Week 2
+title: Learning about Jest and array methods (Northcoders week 2)
 date: "2021-02-05"
 description: "This week the complexity has ramped up on the Northcoders course, covering topics such as value vs reference, closure and higher-order functions. We’ve also worked on a couple of mini sprints of two days each, each one working in a ‘pair programming’ setup."
 ---
