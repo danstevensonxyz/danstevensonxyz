@@ -76,28 +76,30 @@ const BlogIndex = ({ data, location }) => {
       <h1>Latest posts</h1>
         <ol class="latest-posts-list" style={{ listStyle: `none` }}>
           {posts.map(post => {
-            const title = post.frontmatter.title || post.fields.slug
+            if(post.fields.slug.startsWith("/blog")){
+              const title = post.frontmatter.title || post.fields.slug
 
-            return (
-              <li key={post.fields.slug} className="post-list-item">
-                  <header>
-                    <h2>
-                      <Link to={post.fields.slug} itemProp="url">
-                        {title}
-                      </Link>
-                    </h2>
-                    <p>{post.frontmatter.date}</p>
-                  </header>
-                  <section>
-                    <p
-                      dangerouslySetInnerHTML={{
-                        __html: post.frontmatter.description || post.excerpt,
-                      }}
-                      itemProp="description"
-                    />
-                  </section>
-              </li>
-            )
+              return (
+                <li key={post.fields.slug} className="post-list-item">
+                    <header>
+                      <h2>
+                        <Link to={post.fields.slug} itemProp="url">
+                          {title}
+                        </Link>
+                      </h2>
+                      <p>{post.frontmatter.date}</p>
+                    </header>
+                    <section>
+                      <p
+                        dangerouslySetInnerHTML={{
+                          __html: post.frontmatter.description || post.excerpt,
+                        }}
+                        itemProp="description"
+                      />
+                    </section>
+                </li>
+              )
+            }
           })}
         </ol>
       </div>
