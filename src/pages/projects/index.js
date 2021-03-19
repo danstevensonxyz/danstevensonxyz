@@ -1,7 +1,8 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { graphql } from "gatsby"
+// import { Link } from "gatsby"
 
-import Bio from "../../components/bio"
+// import Bio from "../../components/bio"
 import Layout from "../../components/layout"
 import SEO from "../../components/seo"
 
@@ -31,77 +32,45 @@ const BlogIndex = ({ data, location }) => {
       <SEO title="My projects" />
 
       <div class="projects-grid">
-        <h1>My projects</h1>
+        <h1>Recent projects</h1>
 
         <div class="project-block-one-third">
-            {/* <a href=""> */}
-              <Version1ImgImport />
-            {/* </a> */}
-            <div class="project-block-content">
-              {/* <a href=""> */}
-                <h2 class="project-block-title">Blog and portfolio website</h2>
-              {/* </a> */}
-              <p class="project-block-description">Launched at the beginning of my Northcoders journey, this site has evolved since the beginning of 2021 to include blog posts about my experience with Northcoders and past projects. Built using Gatsby, version-controlled with GitHub and hosted with Netlify, it's a project to give me a place to talk about my projects!</p>
-          </div>
-        </div>
-
-        <div class="project-block-one-third">
-          {/* <a href=""> */}
+          <a href="/projects/building-online-forms-at-sheffield-city-council">
             <DapImgImport />
-          {/* </a> */}
+          </a>
           <div class="project-block-content">
-            {/* <a href=""> */}
+            <a href="/projects/building-online-forms-at-sheffield-city-council">
               <h2 class="project-block-title">"Digital Acceleration" forms project</h2>
-            {/* </a> */}
+            </a>
             <p class="project-block-description">I built and launched over 100 forms in 12 months on the Sheffield City Council website, using the AEM content management system and JavaScript for routing and show/hide logic. This included forms for free school meals, disabled persons' travel passes and complex coronavirus forms.</p>
           </div>
         </div>
 
         <div class="project-block-one-third">
-          {/* <a href=""> */}
+          <a href="/projects/versify-the-online-language-exchange">
             <VersifyImgImport />
-          {/* </a> */}
+          </a>
           <div class="project-block-content">
-            {/* <a href=""> */}
-              <h2 class="project-block-title">Versify online language exchange</h2>
-            {/* </a> */}
-            <p class="project-block-description">While at university I founded the Language Exchange Society, which later became Versify, the online Language Exchange. Working with two other co-founders, we built the web app which allowed language students to practice through face-to-face video chats (before anyone had heard of Zoom!)</p>
+            <a href="/projects/versify-the-online-language-exchange">
+              <h2 class="project-block-title">Versify - the online language exchange</h2>
+            </a>
+            <p class="project-block-description">While at university I founded the Language Exchange Society, which later became Versify, the online language exchange. Working with two other co-founders, we built the web app which allowed language students to practice through face-to-face video chats (before anyone had heard of Zoom!)</p>
+          </div>
+        </div>
+
+        <div class="project-block-one-third">
+            <a href="/projects/personal-website">
+              <Version1ImgImport />
+            </a>
+            <div class="project-block-content">
+              <a href="/projects/personal-website">
+                <h2 class="project-block-title">Blog and portfolio website</h2>
+              </a>
+              <p class="project-block-description">Launched at the beginning of my Northcoders journey, this site has evolved since the beginning of 2021 to include blog posts about my experience with Northcoders and past projects. Built using Gatsby, version-controlled with GitHub and hosted with Netlify, it's a project to give me a place to talk about my projects!</p>
           </div>
         </div>
 
       </div>
-
-      {/* <div class="latest-posts">
-      <h1>Latest posts</h1>
-        <ol class="latest-posts-list" style={{ listStyle: `none` }}>
-          {posts.map(post => {
-            if(post.fields.slug.startsWith("/blog")){
-              const title = post.frontmatter.title || post.fields.slug
-
-              return (
-                <li key={post.fields.slug} className="post-list-item">
-                    <header>
-                      <h2>
-                        <Link to={post.fields.slug} itemProp="url">
-                          {title}
-                        </Link>
-                      </h2>
-                      <p>{post.frontmatter.date}</p>
-                    </header>
-                    <section>
-                      <p
-                        dangerouslySetInnerHTML={{
-                          __html: post.frontmatter.description || post.excerpt,
-                        }}
-                        itemProp="description"
-                      />
-                    </section>
-                </li>
-              )
-            }
-          })}
-        </ol>
-      </div> */}
     </Layout>
   )
 }
