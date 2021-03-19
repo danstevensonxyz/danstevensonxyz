@@ -6,7 +6,7 @@ image: "./danstevenson-co-v1.png"
 
 **Tech:** Gatsby JAM stack; JavaScript, GraphQL, NPM, React, CSS, HTML, Markdown <br/>
 **Hosting**: Netlify auto-deploy from GitHub repo <br/>
-**Most recent new feature**: Modify directory structure for `/blog` and `/projects` markdown files
+**Most recent new feature**: Modify directory structure for `/blog` and `/projects` markdown files<br/>
 **Git repo**: <a href="https://github.com/DanStevensonCO/DanStevensonCO" target="_blank">github.com/DanStevensonCO/DanStevensonCO</a>
 
 
