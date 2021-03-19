@@ -10,7 +10,7 @@ const BlogIndex = ({ data, location }) => {
 
   return (
     <Layout location={location} title={siteTitle}>
-      <SEO title="Blog" />
+      <SEO title="Latest posts" />
       <div class="latest-posts">
       <h1>Latest posts</h1>
         <ol class="latest-posts-list" style={{ listStyle: `none` }}>
