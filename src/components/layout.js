@@ -17,6 +17,7 @@ const Layout = ({ location, title, children }) => {
           <a href="/blog" class="nav-link">Blog</a> 
           {/* <a href="/cv" class="nav-link">CV</a> */}
           <a href="https://github.com/DanStevensonCO" target="_blank" class="nav-link">GitHub</a> 
+          <a href="https://linkedin.com/in/DanStevensonCO" target="_blank" class="nav-link">LinkedIn</a> 
         </nav>
       </div>
     )
