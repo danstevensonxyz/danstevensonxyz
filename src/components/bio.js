@@ -53,7 +53,7 @@ const Bio = () => {
       )}
       {author?.name && (
         <p>
-          I'm <strong>Dan Stevenson</strong>, a software developer living in Sheffield and studying with Northcoders. You can contact me on <a href="https://www.twitter.com/DanStevensonCO" target="_blank">Twitter</a> and find out more about my experience on <a href="https://www.linkedin.com/in/DanStevensonCO" target="_blank">LinkedIn</a>. 
+          I'm <strong>Dan Stevenson</strong>, a software developer living in Sheffield and studying with Northcoders. You can follow my daily progress on <a href="https://www.twitter.com/DanStevensonCO" target="_blank">Twitter</a> and find out more about my experience on <a href="https://www.linkedin.com/in/DanStevensonCO" target="_blank">LinkedIn</a>. Feel free to get in touch! 
         </p>
       )}
     </div>
