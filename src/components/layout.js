@@ -4,8 +4,8 @@ import Header from './Header.jsx'
 
 const Layout = ({ children }) => {
   return (
-    <div className="header-wrapper">
-      <header className="global-header"> <Header /></header>
+    <div id="wrapper">
+      <Header />
       <div className="global-wrapper">
         <main>{children}</main>
           <footer>
