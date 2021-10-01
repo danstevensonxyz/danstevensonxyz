@@ -1,5 +1,6 @@
 ---
 title: Versify — the online language exchange
+date: "2021-05-01"
 description: "While at university I founded the Language Exchange Society, which later became Versify, the online language exchange. Working with two other co-founders, we built the web app which allowed language students to practice through face-to-face video chats (before anyone had heard of Zoom!)"
 image: "./versify-logo-green-background.png"
 ---

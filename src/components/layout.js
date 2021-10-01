@@ -13,9 +13,7 @@ const Layout = ({ location, title, children }) => {
         </h1>
         <nav class="nav-links">
           <a href="/" class="nav-link">Home</a> 
-          <a href="/projects" class="nav-link">Projects</a>
           <a href="/blog" class="nav-link">Blog</a> 
-          {/* <a href="/cv" class="nav-link">CV</a> */}
           <a href="https://github.com/DanStevensonCO" target="_blank" class="nav-link">GitHub</a> 
           <a href="https://linkedin.com/in/DanStevensonCO" target="_blank" class="nav-link">LinkedIn</a> 
         </nav>
