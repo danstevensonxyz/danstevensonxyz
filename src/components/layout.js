@@ -1,26 +1,11 @@
 import React from "react"
-import { Link } from "gatsby"
 
-const Layout = ({ title, children }) => {
-  let header
+import Header from './Header.jsx'
 
-    header = (
-      <div class="header-block">
-        <h1 className="main-heading">
-          <Link to="/">{title}</Link>
-        </h1>
-        <nav class="nav-links">
-          <a href="/" class="nav-link">Home</a> 
-          <a href="/blog" class="nav-link">Blog</a> 
-          <a href="https://github.com/DanStevensonCO" target="_blank" class="nav-link">GitHub</a> 
-          <a href="https://linkedin.com/in/DanStevensonCO" target="_blank" class="nav-link">LinkedIn</a> 
-        </nav>
-      </div>
-    )
-
+const Layout = ({ children }) => {
   return (
     <div className="header-wrapper">
-      <header className="global-header">{header}</header>
+      <header className="global-header"> <Header /></header>
       <div className="global-wrapper">
         <main>{children}</main>
           <footer>
