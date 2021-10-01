@@ -247,47 +247,43 @@ a:focus {
 
 /* Custom classes */
 
-.global-wrapper {
+#wrapper {
   margin: var(--spacing-0) auto;
   max-width: var(--maxWidth-wrapper);
   padding: var(--spacing-0) var(--spacing-5) var(--spacing-10) var(--spacing-5);
 }
 
-.header-block {
-  margin: auto;
-  max-width: var(--maxWidth-wrapper);
+#header-nav {
+  display: flex;
+  justify-content: space-between;
+  margin: 30px 0 0 0;
 }
 
-.global-header {
-  margin-bottom: var(--spacing-12);
-  padding-top: var(--spacing-5);
-  padding-bottom: var(--spacing-5);
-  background-color: var(--color-primary);
+#header-text {
+  font-size: 32px;
+  font-weight: 300;
+  margin: 0;
 }
 
-.main-heading {
-  font-size: var(--fontSize-6);
-  color: white;
-  margin-top: 0;
+#top-nav {
+  align-self: center;
 }
 
-.nav-links {
-  max-width: var(--maxWidth-wrapper);
+#top-nav ul {
+  list-style: none;
+  display: flex;
+  margin: 0;
 }
 
-.nav-link {
-  color: white;
-  text-decoration: underline;
-  padding: var(--spacing-4) var(--spacing-8) var(--spacing-4) var(--spacing-8);
-  margin-right: var(--spacing-8);
+#top-nav ul li {
+  margin: 0;
+  padding: 0;
 }
 
-.nav-link:hover {
-  color: white;
+#top-nav ul li a {
+  margin: 0 0 0 15px;
   text-decoration: none;
-  background-color: darkgreen;
-  border-color: black;
-  border-width: 14px;
+  color: black;
 }
 
 .post-list-item {
