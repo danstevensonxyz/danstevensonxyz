@@ -2,13 +2,15 @@ import React from 'react';
 
 const Header = () => {
     return (
-        <div class="header-block">
-            <h1 className="main-heading">
-            <a href="/">Dan Stevenson</a>
-            </h1>
-            <nav class="nav-links">
-                <a href="https://github.com/DanStevensonCO" target="_blank" class="nav-link">GitHub</a> 
-                <a href="https://linkedin.com/in/DanStevensonCO" target="_blank" class="nav-link">LinkedIn</a> 
+        <div id="header-nav">
+            <header>
+                <h1 id="header-text"><a href="/">Dan Stevenson</a></h1>
+            </header>
+            <nav id="top-nav">
+                <ul>
+                    <li><a href="/blog">Blog</a></li>
+                    <li><a href="https://www.twitter.com/DanStevensonCO" target="_blank">Twitter</a></li>
+                </ul>
             </nav>
         </div>
     );

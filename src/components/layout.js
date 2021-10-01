@@ -5,12 +5,9 @@ import Header from './Header.jsx'
 const Layout = ({ children }) => {
   return (
     <div id="wrapper">
-      <Header />
-      <div className="global-wrapper">
+        <Header />
         <main>{children}</main>
-          <footer>
-          </footer>
-      </div>
+        <footer></footer>
     </div>
   )
 }
