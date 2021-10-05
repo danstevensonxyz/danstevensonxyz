@@ -72,7 +72,7 @@ Anyway, in March there was a breakthrough which opened the floodgates for forms 
 
 Like most people, we moved to working remotely, but not even a pandemic could stop us now!
 
-![Apply for free school meals form screenshot](/dap-apply-for-free-school-meals.png "Apply for free school meals form screenshot")
+![Apply for free school meals form screenshot](./dap-apply-for-free-school-meals.png "Apply for free school meals form screenshot")
 
 ## Summer 2020 - traction and “Track and Trace”
 

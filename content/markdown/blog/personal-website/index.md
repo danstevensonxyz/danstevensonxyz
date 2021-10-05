@@ -13,7 +13,7 @@ image: "./danstevenson-co-v1.png"
 
 >Launched at the beginning of my Northcoders journey, this site has evolved since the beginning of 2021 to include blog posts about my experience with Northcoders and past projects. Built using Gatsby, version-controlled with GitHub and hosted with Netlify, it's a project to give me a place to talk about my projects!
 
-!["Screenshot of first version of this site, with basic header and list of three posts"](/danstevenson-co-v1.png "The MVP - version 1")
+!["Screenshot of first version of this site, with basic header and list of three posts"](./danstevenson-co-v1.png "The MVP - version 1")
 
 I've worked on a few content management systems in the past (using WordPress, Magento, Adobe Experience Manager) and know that getting them to behave and look as you want can be a challenge! 
 
@@ -29,7 +29,7 @@ After following the really simple installation and writing a couple of posts, I 
 
 <br/>
 
-!["Screenshot of second version of this site, with wider content column and a custom nav bar"](/danstevenson-co-v2.png "Adding a bit of colour - version 2")
+!["Screenshot of second version of this site, with wider content column and a custom nav bar"](./danstevenson-co-v2.png "Adding a bit of colour - version 2")
 
 v2 wasn't a massive change visually to v1, but was laying the ground work for later changes. 
 
@@ -45,7 +45,7 @@ if (lines > 1){
 
 Since I'm going to be using the site to showcase some projects I've been working on, and I knew I'd be wanting some sort of grid to be able to display projects as blocks, I found the `global-wrapper` (basically the part that contains all of the site content in the middle) was a bit too narrow. Not probably an issue for most sites, where most people visit from a small mobile device, and which are rightly designed with from a "mobile first" perspective. But as a portfolio site, I need to consider larger screens as well. 
 
-!["Screenshot of third version of this site, with three blocks displaying recent projects"](/danstevenson-co-v3.png "Adding to the portfolio - version 3")
+!["Screenshot of third version of this site, with three blocks displaying recent projects"](./danstevenson-co-v3.png "Adding to the portfolio - version 3")
 
 The third version of the site has seen the biggest number changes. 
 

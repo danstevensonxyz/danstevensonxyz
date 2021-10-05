@@ -7,7 +7,7 @@ image: "./versify-logo-green-background.png"
 
 >While at university I founded the Language Exchange Society, which later became Versify, the online language exchange. Working with two other co-founders, we built the web app which allowed language students from around the world to practice through face-to-face video chats (before anyone had heard of Zoom!)
 
-![Screenshot of Versify web app with two people having a video chat](/versify-old-ui-video-chat.png "A Versify online language exchange")
+![Screenshot of Versify web app with two people having a video chat](./versify-old-ui-video-chat.png "A Versify online language exchange")
 
 
 From a solid base of running a successful student organisation, the Language Exchange Society, which operated in various London universities including King's College London, UCL and SOAS, I could see that there was a demand for this type of learning. The issue for some students was finding people who spoke the languages they wanted to learn or at times convenient for them. Although we had over 3,000 members, I could see that we needed to expand further to allow for the full benefits of the network effects. 
@@ -46,7 +46,7 @@ As well as over 20 years technical experience, Rick also contributed valuable id
 
 We worked together in one-week sprints (deciding that two-week sprints trailed off towards the end), and as Rick built the foundation of the Ruby on Rails web app, I tested user flows and possible features with users, adjusting the roadmap based on the user research. This was mainly done by creating wireframes in Sketch and stitching them together to create clickable prototypes in InVision like <a href="https://goo.gl/iKZEKN" target="_blank">this one</a>, sending it to the user, and having a Google Hangout screen share session to see how they interacted with the prototype. I fed this back in to the roadmap and prioritised user stories for the following week.
 
-![Versify user interface](/versify-new-ui.jpg "Versify user interface")
+![Versify user interface](./versify-new-ui.jpg "Versify user interface")
 
 While user testing with members using the MVP, I noticed an issue where people would arrange a video chat for a certain time, but then one or both members wouldn’t show up. I knew there was an issue with expecting strangers to trust each other and keep to their commitment, and I looked into ways of improving this. One suggestion was to either suggest members spend a bit more time using our instant messaging/inbox feature, to build up more familiarity and trust before arranging a video chat, or to jump straight into a chat with someone already online, so later scheduling and commitment wasn't neccessary. 
 
