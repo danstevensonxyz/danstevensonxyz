@@ -79,7 +79,6 @@ html {
 }
 
 body {
-  background-color: var(--color-background);
   font-family: var(--font-body);
   font-size: var(--fontSize-1);
   color: var(--color-text);
