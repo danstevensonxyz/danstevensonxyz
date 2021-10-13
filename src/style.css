@@ -219,9 +219,8 @@ a:focus {
 }
 
 #header-nav {
-  display: flex;
-  justify-content: space-between;
-  margin: 30px 0;
+  width: fit-content;
+  margin: 10px auto;
 }
 
 #header-text {
@@ -322,6 +321,15 @@ pre[class*="language-"]>code {
 }
 
 /* Media queries */
+
+@media (min-width: 500px) {
+  #header-nav {
+    display: flex;
+    justify-content: space-between;
+    margin: 30px 0;
+    width: 100%;
+  }
+}
 
 @media (min-width: 769px) {
   main {
