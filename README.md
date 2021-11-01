@@ -7,4 +7,4 @@ With experience in various project team roles (developer, PM, BA, UX) I can cont
 
 ## About this repo
 
-[This](https://github.com/DanStevensonCO/DanStevensonCO) is my personal site repo where I share my thoughts and experience working on software projects. It's a React app, built using a basic Gatsby starter to handle content management. It is hosted on Netlify, using continuous deployment through GitHub integration. 
+[This](https://github.com/DanStevensonCO/DanStevensonCO) is my personal site repo. The site [(DanStevenson.CO)](https://www.danstevenson.co/) is where I share my thoughts and experience working on software projects. It's a React app, built using a basic Gatsby starter to handle content management. It is hosted on Netlify, using continuous deployment through GitHub integration. 
