@@ -12,7 +12,7 @@ const Homepage = ({ data, location }) => {
     <Layout location={location} title={siteTitle}>
       <SEO title="Latest posts" />
       
-      <h1>Software developer, entrepreneur and adventurer.</h1>
+      <h1>Software developer, entrepreneur and problem-solver.</h1>
 
       <p>I am an entrepreneurial, technology-focused and proactive software developer with a track-record of getting things done! I strive to keep up to date with the latest technology trends, with my recent focus being React and decentralised applications.</p>
       <p>With experience in various project team roles (developer, PM, BA, UX) I can contribute technical as well as non-technical insights to help the team achieve its goals. In the last few years I have founded two tech startups, worked in the private and public sectors, and have transitioned from project support to technical roles.</p>
